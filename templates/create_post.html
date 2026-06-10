@@ -1,0 +1,15 @@
+<p>Logged in as {{ request.user.username }} | 
+    <a href="{% url 'home' %}">Home</a> |
+    <form action="{% url 'logout' %}" method="post" style="display:inline;">
+        {% csrf_token %}
+        <button type="submit">Logout</button>
+    </form>
+</p>
+
+<h2>Create a Post</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Create Post</button>
+</form>
+
