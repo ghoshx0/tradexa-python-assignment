@@ -1,8 +1,39 @@
-<h2>Products</h2>
-<ul>
-    {% for product in products %}
-        <li>{{ product.name }} — ₹{{ product.price }} ({{ product.weight }}kg)</li>
-    {% empty %}
-        <li>No products yet.</li>
-    {% endfor %}
-</ul>
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2 class="mb-4">Products</h2>
+
+<div class="row">
+
+{% for product in products %}
+
+<div class="col-md-4 mb-4">
+
+    <div class="card shadow-sm h-100">
+
+        <div class="card-body">
+
+            <h4>{{ product.name }}</h4>
+
+            <p>
+                Weight:
+                {{ product.weight }} kg
+            </p>
+
+            <p>
+                Price:
+                ₹{{ product.price }}
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+{% endblock %}
